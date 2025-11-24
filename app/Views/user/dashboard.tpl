@@ -41,28 +41,95 @@
         </div>
     </div>
 
-    <!-- Buku Terbaru -->
+    <!-- 📚 Buku Populer -->
     <div class="mb-5">
-        <h4 class="mb-4 pb-2 fw-bold text-center" style="font-size:1.6rem;">Buku Terbaru</h4>
+        <h4 class="mb-4 pb-2 fw-bold text-center" style="font-size:1.6rem;">📚 Buku Populer</h4>
+        <div class="row g-3">
+            {if !empty($popularBooks)}
+                {foreach $popularBooks as $book}
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                        <div class="card h-100 rounded-4 hover-shadow">
+
+                            <!-- COVER -->
+                            <img src="
+                                {if !empty($book.cover)}
+                                    {$base_url}/uploads/covers/{$book.cover|escape}
+                                {else}
+                                    {$base_url}/assets/img/no-cover.png
+                                {/if}"
+                                class="card-img-top rounded-top-4"
+                                alt="{$book.judul|escape}"
+                                style="height:240px; object-fit:cover;">
+
+                            <div class="card-body d-flex flex-column p-3">
+
+                                <!-- JUDUL -->
+                                <h6 class="card-title text-truncate fw-semibold mb-1">
+                                    {$book.judul|escape}
+                                </h6>
+
+                                <!-- STATISTIK POPULER -->
+                                <span class="badge bg-primary mb-1">
+                                    Dipinjam: {$book.total_pinjam|default:0}x
+                                </span>
+
+                                <span class="badge bg-danger mb-2">
+                                    Favorit: {$book.total_favorit|default:0}x
+                                </span>
+
+                                <!-- LINK DETAIL -->
+                                <a href="{$base_url}/user/books/view/{$book.book_id}"
+                                   class="btn btn-sm btn-outline-secondary mt-auto w-100">
+                                    Lihat
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                {/foreach}
+            {else}
+                <div class="col-12 text-center">
+                    <p class="text-muted mt-3">Belum ada buku populer.</p>
+                </div>
+            {/if}
+        </div>
+    </div>
+
+    <!-- 📘 Buku Terbaru -->
+    <div class="mb-5">
+        <h4 class="mb-4 pb-2 fw-bold text-center" style="font-size:1.6rem;">📘 Buku Terbaru</h4>
         <div class="row g-3">
             {if !empty($latestBooks)}
                 {foreach $latestBooks as $book}
                     <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                         <div class="card h-100 rounded-4 hover-shadow">
-                            <img src="{if !empty($book.cover)}{$base_url}/uploads/covers/{$book.cover|escape}{else}{$base_url}/assets/img/no-cover.png{/if}"  
-                                 class="card-img-top rounded-top-4" 
-                                 alt="{$book.judul|default:'Judul Tidak Diketahui'|escape}"
-                                 title="{$book.judul|default:'Judul Tidak Diketahui'|escape}"
+
+                            <img src="{if !empty($book.cover)}
+                                        {$base_url}/uploads/covers/{$book.cover|escape}
+                                      {else}
+                                        {$base_url}/assets/img/no-cover.png
+                                      {/if}"
+                                 class="card-img-top rounded-top-4"
+                                 alt="{$book.judul|escape}"
                                  style="height:240px; object-fit:cover;">
+
                             <div class="card-body d-flex flex-column p-3">
-                                <h6 class="card-title text-truncate fw-semibold mb-1">{$book.judul|escape}</h6>
+
+                                <h6 class="card-title text-truncate fw-semibold mb-1">
+                                    {$book.judul|escape}
+                                </h6>
+
                                 <p class="card-text text-muted small mb-3">
-                                    <i class="bi bi-person me-1"></i>{$book.penulis|default:'-'|escape}
+                                    <i class="bi bi-person me-1"></i>
+                                    {$book.penulis|default:'-'|escape}
                                 </p>
-                                <a href="{$base_url}/user/books/view/{$book.book_id}" class="btn btn-sm btn-outline-secondary mt-auto w-100">
+
+                                <a href="{$base_url}/user/books/view/{$book.book_id}"
+                                   class="btn btn-sm btn-outline-secondary mt-auto w-100">
                                     Lihat
                                 </a>
                             </div>
+
                         </div>
                     </div>
                 {/foreach}
@@ -74,29 +141,39 @@
         </div>
     </div>
 
-    <!-- Buku Populer Ber-Rating -->
+    <!-- ⭐ Buku Ber-Rating -->
     <div class="mb-5">
-        <h4 class="mb-4 pb-2 fw-bold text-center" style="font-size:1.6rem;">⭐ Buku Populer & Ber-Rating</h4>
+        <h4 class="mb-4 pb-2 fw-bold text-center" style="font-size:1.6rem;">⭐ Buku Ber-Rating</h4>
         <div class="row g-3">
             {if !empty($ratedBooks)}
                 {foreach $ratedBooks as $book}
                     <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                         <div class="card h-100 rounded-4 hover-shadow">
-                            <img src="{if !empty($book.cover)}{$base_url}/uploads/covers/{$book.cover|escape}{else}{$base_url}/assets/img/no-cover.png{/if}"  
-                                 class="card-img-top rounded-top-4" 
-                                 alt="{$book.judul|default:'Judul Tidak Diketahui'|escape}"
-                                 title="{$book.judul|default:'Judul Tidak Diketahui'|escape}"
+
+                            <img src="{if !empty($book.cover)}
+                                        {$base_url}/uploads/covers/{$book.cover|escape}
+                                      {else}
+                                        {$base_url}/assets/img/no-cover.png
+                                      {/if}"
+                                 class="card-img-top rounded-top-4"
+                                 alt="{$book.judul|escape}"
                                  style="height:240px; object-fit:cover;">
+
                             <div class="card-body d-flex flex-column p-3">
-                                <h6 class="card-title text-truncate fw-semibold mb-1">{$book.judul|escape}</h6>
-                                <p class="card-text text-muted small mb-1">
-                                    <i class="bi bi-person me-1"></i>{$book.penulis|default:'-'|escape}
-                                </p>
-                                <span class="badge bg-dark mb-2">Rating: {$book.avg_rating|round:1}</span>
-                                <a href="{$base_url}/user/books/view/{$book.book_id}" class="btn btn-sm btn-outline-secondary mt-auto w-100">
+                                <h6 class="card-title text-truncate fw-semibold mb-1">
+                                    {$book.judul|escape}
+                                </h6>
+
+                                <span class="badge bg-dark mb-2">
+                                    Rating: {$book.avg_rating|round:1}
+                                </span>
+
+                                <a href="{$base_url}/user/books/view/{$book.book_id}"
+                                   class="btn btn-sm btn-outline-secondary mt-auto w-100">
                                     Lihat
                                 </a>
                             </div>
+
                         </div>
                     </div>
                 {/foreach}

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.6.0, created on 2025-11-20 17:55:16
+/* Smarty version 5.6.0, created on 2025-11-24 04:51:57
   from 'file:C:\laragon\www\perpustakaan\app\Views\user/dashboard.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.6.0',
-  'unifunc' => 'content_691f560413ea76_25579407',
+  'unifunc' => 'content_6923e46d65e209_69863778',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0aa7b8936dfc492df918fcf7473f01d29d2fd93e' => 
     array (
       0 => 'C:\\laragon\\www\\perpustakaan\\app\\Views\\user/dashboard.tpl',
-      1 => 1763661310,
+      1 => 1763959911,
       2 => 'file',
     ),
   ),
@@ -20,20 +20,20 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_691f560413ea76_25579407 (\Smarty\Template $_smarty_tpl) {
+function content_6923e46d65e209_69863778 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\laragon\\www\\perpustakaan\\app\\Views\\user';
 $_smarty_tpl->getInheritance()->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->getInheritance()->instanceBlock($_smarty_tpl, 'Block_1093888205691f56040fe9d1_05990291', 'main_content');
+$_smarty_tpl->getInheritance()->instanceBlock($_smarty_tpl, 'Block_4177966696923e46d5f7224_20673639', 'main_content');
 ?>
 
 <?php $_smarty_tpl->getInheritance()->endChild($_smarty_tpl, 'layout_user.tpl', $_smarty_current_dir);
 }
 /* {block 'main_content'} */
-class Block_1093888205691f56040fe9d1_05990291 extends \Smarty\Runtime\Block
+class Block_4177966696923e46d5f7224_20673639 extends \Smarty\Runtime\Block
 {
 public function callBlock(\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\laragon\\www\\perpustakaan\\app\\Views\\user';
@@ -84,44 +84,124 @@ $_smarty_current_dir = 'C:\\laragon\\www\\perpustakaan\\app\\Views\\user';
         </div>
     </div>
 
-    <!-- Buku Terbaru -->
+    <!-- 📚 Buku Populer -->
     <div class="mb-5">
-        <h4 class="mb-4 pb-2 fw-bold text-center" style="font-size:1.6rem;">Buku Terbaru</h4>
+        <h4 class="mb-4 pb-2 fw-bold text-center" style="font-size:1.6rem;">📚 Buku Populer</h4>
         <div class="row g-3">
-            <?php if (!( !$_smarty_tpl->hasVariable('latestBooks') || empty($_smarty_tpl->getValue('latestBooks')))) {?>
+            <?php if (!( !$_smarty_tpl->hasVariable('popularBooks') || empty($_smarty_tpl->getValue('popularBooks')))) {?>
                 <?php
-$_from = $_smarty_tpl->getSmarty()->getRuntime('Foreach')->init($_smarty_tpl, $_smarty_tpl->getValue('latestBooks'), 'book');
+$_from = $_smarty_tpl->getSmarty()->getRuntime('Foreach')->init($_smarty_tpl, $_smarty_tpl->getValue('popularBooks'), 'book');
 $foreach0DoElse = true;
 foreach ($_from ?? [] as $_smarty_tpl->getVariable('book')->value) {
 $foreach0DoElse = false;
 ?>
                     <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                         <div class="card h-100 rounded-4 hover-shadow">
-                            <img src="<?php if (!( !true || empty($_smarty_tpl->getValue('book')['cover']))) {
-echo $_smarty_tpl->getValue('base_url');?>
-/uploads/covers/<?php echo htmlspecialchars((string)$_smarty_tpl->getValue('book')['cover'], ENT_QUOTES, 'UTF-8', true);
-} else {
-echo $_smarty_tpl->getValue('base_url');?>
-/assets/img/no-cover.png<?php }?>"  
-                                 class="card-img-top rounded-top-4" 
-                                 alt="<?php echo htmlspecialchars((string)(($tmp = $_smarty_tpl->getValue('book')['judul'] ?? null)===null||$tmp==='' ? 'Judul Tidak Diketahui' ?? null : $tmp), ENT_QUOTES, 'UTF-8', true);?>
-"
-                                 title="<?php echo htmlspecialchars((string)(($tmp = $_smarty_tpl->getValue('book')['judul'] ?? null)===null||$tmp==='' ? 'Judul Tidak Diketahui' ?? null : $tmp), ENT_QUOTES, 'UTF-8', true);?>
-"
-                                 style="height:240px; object-fit:cover;">
-                            <div class="card-body d-flex flex-column p-3">
-                                <h6 class="card-title text-truncate fw-semibold mb-1"><?php echo htmlspecialchars((string)$_smarty_tpl->getValue('book')['judul'], ENT_QUOTES, 'UTF-8', true);?>
-</h6>
-                                <p class="card-text text-muted small mb-3">
-                                    <i class="bi bi-person me-1"></i><?php echo htmlspecialchars((string)(($tmp = $_smarty_tpl->getValue('book')['penulis'] ?? null)===null||$tmp==='' ? '-' ?? null : $tmp), ENT_QUOTES, 'UTF-8', true);?>
 
-                                </p>
+                            <!-- COVER -->
+                            <img src="
+                                <?php if (!( !true || empty($_smarty_tpl->getValue('book')['cover']))) {?>
+                                    <?php echo $_smarty_tpl->getValue('base_url');?>
+/uploads/covers/<?php echo htmlspecialchars((string)$_smarty_tpl->getValue('book')['cover'], ENT_QUOTES, 'UTF-8', true);?>
+
+                                <?php } else { ?>
+                                    <?php echo $_smarty_tpl->getValue('base_url');?>
+/assets/img/no-cover.png
+                                <?php }?>"
+                                class="card-img-top rounded-top-4"
+                                alt="<?php echo htmlspecialchars((string)$_smarty_tpl->getValue('book')['judul'], ENT_QUOTES, 'UTF-8', true);?>
+"
+                                style="height:240px; object-fit:cover;">
+
+                            <div class="card-body d-flex flex-column p-3">
+
+                                <!-- JUDUL -->
+                                <h6 class="card-title text-truncate fw-semibold mb-1">
+                                    <?php echo htmlspecialchars((string)$_smarty_tpl->getValue('book')['judul'], ENT_QUOTES, 'UTF-8', true);?>
+
+                                </h6>
+
+                                <!-- STATISTIK POPULER -->
+                                <span class="badge bg-primary mb-1">
+                                    Dipinjam: <?php echo (($tmp = $_smarty_tpl->getValue('book')['total_pinjam'] ?? null)===null||$tmp==='' ? 0 ?? null : $tmp);?>
+x
+                                </span>
+
+                                <span class="badge bg-danger mb-2">
+                                    Favorit: <?php echo (($tmp = $_smarty_tpl->getValue('book')['total_favorit'] ?? null)===null||$tmp==='' ? 0 ?? null : $tmp);?>
+x
+                                </span>
+
+                                <!-- LINK DETAIL -->
                                 <a href="<?php echo $_smarty_tpl->getValue('base_url');?>
 /user/books/view/<?php echo $_smarty_tpl->getValue('book')['book_id'];?>
-" class="btn btn-sm btn-outline-secondary mt-auto w-100">
+"
+                                   class="btn btn-sm btn-outline-secondary mt-auto w-100">
                                     Lihat
                                 </a>
                             </div>
+
+                        </div>
+                    </div>
+                <?php
+}
+$_smarty_tpl->getSmarty()->getRuntime('Foreach')->restore($_smarty_tpl, 1);?>
+            <?php } else { ?>
+                <div class="col-12 text-center">
+                    <p class="text-muted mt-3">Belum ada buku populer.</p>
+                </div>
+            <?php }?>
+        </div>
+    </div>
+
+    <!-- 📘 Buku Terbaru -->
+    <div class="mb-5">
+        <h4 class="mb-4 pb-2 fw-bold text-center" style="font-size:1.6rem;">📘 Buku Terbaru</h4>
+        <div class="row g-3">
+            <?php if (!( !$_smarty_tpl->hasVariable('latestBooks') || empty($_smarty_tpl->getValue('latestBooks')))) {?>
+                <?php
+$_from = $_smarty_tpl->getSmarty()->getRuntime('Foreach')->init($_smarty_tpl, $_smarty_tpl->getValue('latestBooks'), 'book');
+$foreach1DoElse = true;
+foreach ($_from ?? [] as $_smarty_tpl->getVariable('book')->value) {
+$foreach1DoElse = false;
+?>
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                        <div class="card h-100 rounded-4 hover-shadow">
+
+                            <img src="<?php if (!( !true || empty($_smarty_tpl->getValue('book')['cover']))) {?>
+                                        <?php echo $_smarty_tpl->getValue('base_url');?>
+/uploads/covers/<?php echo htmlspecialchars((string)$_smarty_tpl->getValue('book')['cover'], ENT_QUOTES, 'UTF-8', true);?>
+
+                                      <?php } else { ?>
+                                        <?php echo $_smarty_tpl->getValue('base_url');?>
+/assets/img/no-cover.png
+                                      <?php }?>"
+                                 class="card-img-top rounded-top-4"
+                                 alt="<?php echo htmlspecialchars((string)$_smarty_tpl->getValue('book')['judul'], ENT_QUOTES, 'UTF-8', true);?>
+"
+                                 style="height:240px; object-fit:cover;">
+
+                            <div class="card-body d-flex flex-column p-3">
+
+                                <h6 class="card-title text-truncate fw-semibold mb-1">
+                                    <?php echo htmlspecialchars((string)$_smarty_tpl->getValue('book')['judul'], ENT_QUOTES, 'UTF-8', true);?>
+
+                                </h6>
+
+                                <p class="card-text text-muted small mb-3">
+                                    <i class="bi bi-person me-1"></i>
+                                    <?php echo htmlspecialchars((string)(($tmp = $_smarty_tpl->getValue('book')['penulis'] ?? null)===null||$tmp==='' ? '-' ?? null : $tmp), ENT_QUOTES, 'UTF-8', true);?>
+
+                                </p>
+
+                                <a href="<?php echo $_smarty_tpl->getValue('base_url');?>
+/user/books/view/<?php echo $_smarty_tpl->getValue('book')['book_id'];?>
+"
+                                   class="btn btn-sm btn-outline-secondary mt-auto w-100">
+                                    Lihat
+                                </a>
+                            </div>
+
                         </div>
                     </div>
                 <?php
@@ -135,46 +215,52 @@ $_smarty_tpl->getSmarty()->getRuntime('Foreach')->restore($_smarty_tpl, 1);?>
         </div>
     </div>
 
-    <!-- Buku Populer Ber-Rating -->
+    <!-- ⭐ Buku Ber-Rating -->
     <div class="mb-5">
-        <h4 class="mb-4 pb-2 fw-bold text-center" style="font-size:1.6rem;">⭐ Buku Populer & Ber-Rating</h4>
+        <h4 class="mb-4 pb-2 fw-bold text-center" style="font-size:1.6rem;">⭐ Buku Ber-Rating</h4>
         <div class="row g-3">
             <?php if (!( !$_smarty_tpl->hasVariable('ratedBooks') || empty($_smarty_tpl->getValue('ratedBooks')))) {?>
                 <?php
 $_from = $_smarty_tpl->getSmarty()->getRuntime('Foreach')->init($_smarty_tpl, $_smarty_tpl->getValue('ratedBooks'), 'book');
-$foreach1DoElse = true;
+$foreach2DoElse = true;
 foreach ($_from ?? [] as $_smarty_tpl->getVariable('book')->value) {
-$foreach1DoElse = false;
+$foreach2DoElse = false;
 ?>
                     <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                         <div class="card h-100 rounded-4 hover-shadow">
-                            <img src="<?php if (!( !true || empty($_smarty_tpl->getValue('book')['cover']))) {
-echo $_smarty_tpl->getValue('base_url');?>
-/uploads/covers/<?php echo htmlspecialchars((string)$_smarty_tpl->getValue('book')['cover'], ENT_QUOTES, 'UTF-8', true);
-} else {
-echo $_smarty_tpl->getValue('base_url');?>
-/assets/img/no-cover.png<?php }?>"  
-                                 class="card-img-top rounded-top-4" 
-                                 alt="<?php echo htmlspecialchars((string)(($tmp = $_smarty_tpl->getValue('book')['judul'] ?? null)===null||$tmp==='' ? 'Judul Tidak Diketahui' ?? null : $tmp), ENT_QUOTES, 'UTF-8', true);?>
-"
-                                 title="<?php echo htmlspecialchars((string)(($tmp = $_smarty_tpl->getValue('book')['judul'] ?? null)===null||$tmp==='' ? 'Judul Tidak Diketahui' ?? null : $tmp), ENT_QUOTES, 'UTF-8', true);?>
+
+                            <img src="<?php if (!( !true || empty($_smarty_tpl->getValue('book')['cover']))) {?>
+                                        <?php echo $_smarty_tpl->getValue('base_url');?>
+/uploads/covers/<?php echo htmlspecialchars((string)$_smarty_tpl->getValue('book')['cover'], ENT_QUOTES, 'UTF-8', true);?>
+
+                                      <?php } else { ?>
+                                        <?php echo $_smarty_tpl->getValue('base_url');?>
+/assets/img/no-cover.png
+                                      <?php }?>"
+                                 class="card-img-top rounded-top-4"
+                                 alt="<?php echo htmlspecialchars((string)$_smarty_tpl->getValue('book')['judul'], ENT_QUOTES, 'UTF-8', true);?>
 "
                                  style="height:240px; object-fit:cover;">
-                            <div class="card-body d-flex flex-column p-3">
-                                <h6 class="card-title text-truncate fw-semibold mb-1"><?php echo htmlspecialchars((string)$_smarty_tpl->getValue('book')['judul'], ENT_QUOTES, 'UTF-8', true);?>
-</h6>
-                                <p class="card-text text-muted small mb-1">
-                                    <i class="bi bi-person me-1"></i><?php echo htmlspecialchars((string)(($tmp = $_smarty_tpl->getValue('book')['penulis'] ?? null)===null||$tmp==='' ? '-' ?? null : $tmp), ENT_QUOTES, 'UTF-8', true);?>
 
-                                </p>
-                                <span class="badge bg-dark mb-2">Rating: <?php echo round((float) $_smarty_tpl->getValue('book')['avg_rating'], (int) 1, (int) 1);?>
-</span>
+                            <div class="card-body d-flex flex-column p-3">
+                                <h6 class="card-title text-truncate fw-semibold mb-1">
+                                    <?php echo htmlspecialchars((string)$_smarty_tpl->getValue('book')['judul'], ENT_QUOTES, 'UTF-8', true);?>
+
+                                </h6>
+
+                                <span class="badge bg-dark mb-2">
+                                    Rating: <?php echo round((float) $_smarty_tpl->getValue('book')['avg_rating'], (int) 1, (int) 1);?>
+
+                                </span>
+
                                 <a href="<?php echo $_smarty_tpl->getValue('base_url');?>
 /user/books/view/<?php echo $_smarty_tpl->getValue('book')['book_id'];?>
-" class="btn btn-sm btn-outline-secondary mt-auto w-100">
+"
+                                   class="btn btn-sm btn-outline-secondary mt-auto w-100">
                                     Lihat
                                 </a>
                             </div>
+
                         </div>
                     </div>
                 <?php
